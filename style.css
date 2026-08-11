@@ -2278,3 +2278,38 @@ main {
     border: 1px solid rgb(170, 107, 228);
     box-shadow: 0 0 12px rgba(170, 107, 228, 0.4);
 }
+
+/* =========================================================
+   CUSTOM CURSOR - DESKTOP ONLY
+   ========================================================= */
+
+@media (min-width: 1025px) {
+
+    html,
+    body,
+    body * {
+        cursor: none !important;
+    }
+
+    .cursor {
+        display: block;
+    }
+}
+
+
+/* =========================================================
+   TABLET + MOBILE
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    .cursor {
+        display: none !important;
+    }
+
+    html,
+    body,
+    body * {
+        cursor: auto !important;
+    }
+}
