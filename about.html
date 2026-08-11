@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- ---------------cursor--------------- -->
+    <div class="cursor"> </div>
+
+    
+    <header id="header1">
+      <a href="#"></a>
+      <nav>
+        <div class="left">Sanjay's Portfolio</div>
+        <button class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="right">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="skills.html">Skill</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" hidden="hidden">
+          <button class="menu-close" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="skills.html">Skill</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div id="about" class="container">
+        <div class="row">
+          <div class="about-col-1">
+            <img src="bg1.png" alt="" />
+          </div>
+          <div class="about-col-2">
+            <h2>About <span> Me</span></h2>
+            <p>
+              I am a Computer Science and Engineering student with a strong interest in full-stack web development, machine learning, and data science. I enjoy building responsive, user-friendly web applications and solving real-world problems through technology. I have experience working with HTML, CSS, JavaScript, React, PHP, Python, and modern web development tools. Alongside web development, I am exploring machine learning and data analysis using Python and libraries such as Pandas, NumPy, Matplotlib, and Scikit-learn. I continuously work on personal projects to strengthen my technical skills and keep up with modern technologies.
+            </p>
+            <div class="tab-title">
+              <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            <div class="tab-content active-tab" id="skills">
+              <ul>
+                <li><span>Full-Stack Web Development</span><br />Building responsive and interactive web applications</li>
+                <li><span>Programming & Development</span><br />Python, Java, JavaScript, PHP, React, HTML & CSS</li>
+                <li><span>Machine Learning & Data Science</span><br />Data analysis, visualization, machine learning models, and predictive solutions</li>
+              </ul>
+            </div>
+            <div class="tab-content" id="education">
+              <ul>
+                <li><span>Year: 2023 - 2027</span><br />B.tech in Computer Science</li>
+                <li><span>Year: 2023</span><br />Higher Secondary</li>
+                <li><span>Year: 2021</span><br />Madhyamik</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- <footer>
+      <div class="copyright">Copyright<i class="fa-regular fa-copyright"></i>Sanjay. Made with by Easy</div> -->
+    </footer>
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+

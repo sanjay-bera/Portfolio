@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- ---------------cursor--------------- -->
+    <div class="cursor"> </div>
+
+    
+    <header id="header1">
+      <a href="#"></a>
+      <nav>
+        <div class="left">Sanjay's Portfolio</div>
+        <button class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="right">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="skills.html">Skill</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" hidden="hidden">
+          <button class="menu-close" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="skills.html">Skill</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+    <div id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="contact-left">
+            <h1 class="sub-title">Contact <span> Me</span></h1>
+            <p><i class="fa-solid fa-paper-plane"></i>sanjaybera11102004@gmail.com</p>
+            <p><i class="fa-solid fa-square-phone"></i>+91 9883944820</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/profile.php?id=100074297335598&mibextid=JRoKGi"><i class="fa-brands fa-facebook"></i></a>
+              <a href="https://x.com/sanjaybera_988?t=csoSX7JYZLEJpQGWNQ_qVA&s=09"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://www.instagram.com/mr_sanjay_bera?igsh=MTFycnVhZnUxbjA2YQ=="><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/sanjaybera"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <a href="sanjay resume.pdf" download class="button btn2">Download CV</a>
+          </div>
+          <div class="contact-right">
+            <form name="submit-to-google-sheet">
+              <input type="text" name="Name" placeholder="Your Name" required>
+              <input type="email" name="Email" placeholder="Your Email" required>
+              <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+              <button type="submit" class="button btn2">Submit</button>
+            </form>
+            <span id="msg"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+
+    <footer>
+      <div class="copyright">Copyright<i class="fa-regular fa-copyright"></i>Sanjay. Made with by ❤︎⁠</div>
+    </footer>
+    <script src="script.js"></script>
+        <script>
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbxNY0LoxjXVNZStL4a8atzqRvDyFWzM-o7adlRH_vmaXhZ2qg6QcL13hD5wHPS_2lFjxA/exec';
+
+const form = document.forms['submit-to-google-sheet'];
+const msg = document.getElementById('msg');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Show immediately after clicking Submit
+    msg.innerHTML = 'Sending...';
+    msg.style.color = '#fff';
+
+    // Disable button while sending
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Sending...';
+
+    try {
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: new FormData(form)
+        });
+
+        if (response.ok) {
+            msg.innerHTML = 'Message sent successfully!';
+            msg.style.color = '#61b752';
+
+            // Clear form
+            form.reset();
+
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                msg.innerHTML = '';
+            }, 5000);
+
+        } else {
+            msg.innerHTML = 'Something went wrong. Please try again.';
+            msg.style.color = '#ff6b6b';
+        }
+
+    } catch (error) {
+        console.error('Error!', error);
+
+        msg.innerHTML = 'Unable to send message. Please try again.';
+        msg.style.color = '#ff6b6b';
+
+    } finally {
+        // Enable button again
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Submit';
+    }
+});
+    </script>
+  </body>
+  </html>
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- ---------------cursor--------------- -->
+    <div class="cursor"> </div>
+    <!-- ---------------nav--------------- -->
+    <header id="header1">
+      <a href="#"></a>
+      <nav>
+        <div class="left">Sanjay's Portfolio</div>
+        <button class="menu-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="right">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="skills.html">Skill</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+        <div id="mobile-menu" class="mobile-menu" hidden="hidden">
+          <button class="menu-close" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="skills.html">Skill</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- -----------------main-------------- -->
+    <main>
+      <section class="firstSec">
+        <div class="leftSec">
+          <div class="name">
+            Hi, My name is <span class="purple"> Sanjay </span>
+          </div>
+          <div class="passion">and I am a passionate</div>
+          <span id="element"></span>
+        </div>
+        <div class="rightSec">
+          <img src="bg.png" alt="" />
+        </div>
+      </section>
+      
+    </main>
+<!-- <footer>
+ <div class="copyright">Copyright<i class="fa-regular fa-copyright"></i>Sanjay. Made with by Easy</div>
+</footer> -->
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="script.js"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzJQZ4QYq0usqJQOsH5d2eWCkBKsgXXAp0lL_qIy9644MvEaDklK5js0hLrXsaWvAs-HQ/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg = document.getElementById("msg")
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {msg.innerHTML = "Message sent sucessfully"
+            setTimeout(function(){
+              msg.innerHTML = ""
+            },5000)
+            form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+  </body>
+</html>
