@@ -63,28 +63,28 @@ if (document.querySelector('#element')){
 
 const cursor = document.querySelector(".cursor");
 
-let timeout;
+let cursorTimeout;
 
-document.addEventListener("mousemove", (e) => {
+if (cursor && window.matchMedia("(min-width: 1025px)").matches) {
 
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-    cursor.style.display = "block";
+    document.addEventListener("mousemove", (e) => {
 
-    // Reset the timer every time the mouse moves
-    clearTimeout(timeout);
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+        cursor.style.display = "block";
 
-    timeout = setTimeout(() => {
+        clearTimeout(cursorTimeout);
+
+        cursorTimeout = setTimeout(() => {
+            cursor.style.display = "none";
+        }, 2000);
+
+    });
+
+    document.addEventListener("mouseleave", () => {
         cursor.style.display = "none";
-    }, 1000);
-});
-
-// Hide cursor when mouse leaves the page
-document.addEventListener("mouseout", (e) => {
-    if (!e.relatedTarget) {
-        cursor.style.display = "none";
-    }
-});
+    });
+}
 
 // ================= SEE MORE PROJECTS =================
 
